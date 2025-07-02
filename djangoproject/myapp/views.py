@@ -5,4 +5,4 @@ from .models import Table
 def index(request):
     table = Table.objects.all()
     context = {'users': table}
-    return render(request, "users/index.html", context)
+    return render(request, "myapp/index.html", context)
