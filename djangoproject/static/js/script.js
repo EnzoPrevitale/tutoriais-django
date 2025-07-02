@@ -13,16 +13,34 @@ document.addEventListener("DOMContentLoaded", function(){
 
     const image = document.getElementById("image");
 
-    image.addEventListener("wheel", function(event){
+    image.addEventListener("click", function(){
         const currentWidth = parseInt(getComputedStyle(image).width);
 
-        if(event.deltaY < 0 && currentWidth < 800) {
+        let newWidth;
+
+        if(currentWidth < 600) {
             newWidth = currentWidth + 20;
-        } else if(event.deltaY > 0 && currentWidth > 50) {
-            newWidth= currentWidth - 20;
+        } else {
+            newWidth = 50;
         }
 
         image.style.width = newWidth + "px";
+    });
+
+    const listItems = document.querySelectorAll("li")
+
+    listItems.forEach(function(item) {
+        item.addEventListener("click", function() {
+            const currentColor = getComputedStyle(item).backgroundColor;
+
+            if(currentColor === "rgb(0, 0, 255)") {
+                item.style.backgroundColor = "white";
+                item.style.color = "black";
+            } else {
+                item.style.backgroundColor = "blue";
+                item.style.color = "white";
+            }
+        });
     });
 }
 )

@@ -11,6 +11,11 @@
 <body>
     <script src="{% static 'js/script.js' %}"></script>
     <h1 id="title">Welcome to the Django</h1>
-    <img src="{% static 'images/django.svg' %}" alt="Django logo"/>
+    <img src="{% static 'images/django.svg' %}" id="image" alt="Django logo"/>
+    <ul id="list"></ul>
+    {% for user in users %}
+            <li>{{ user }}</li>
+    {% endfor %}
+    </ul>
 </body>
 </html>
